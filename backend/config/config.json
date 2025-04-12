@@ -1,0 +1,23 @@
+{
+    "development": {
+      "username": "jloyo",
+      "password": "2580",
+      "database": "etiquetas",
+      "host": "127.0.0.1",
+      "dialect": "postgres"
+    },
+    "test": {
+      "username": "user1",
+      "password": "user1",
+      "database": "etiquetas",
+      "host": "127.0.0.1",
+      "dialect": "postgres"
+    },
+    "production": {
+      "username": "user2",
+      "password": "user2",
+      "database": "etiquetas",
+      "host": "127.0.0.1",
+      "dialect": "postgres"
+    }
+  }
