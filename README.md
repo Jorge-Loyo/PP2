@@ -6,5 +6,6 @@ Nodesjs
 Python
 Flask
 MongoDB Atlas
+Pandas
 
 Hasta el momento todos los archivos estan manejando en frontend.

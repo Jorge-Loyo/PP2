@@ -211,7 +211,7 @@ body {
 
 .welcome-message>img.umbrella-logo {
     /* Estilos para el logo en la bienvenida */
-    height: 2em;
+    height: 4em;
     /* Ajusta la altura del logo según el tamaño del texto */
     vertical-align: middle;
     /* Alinea verticalmente con el texto */
