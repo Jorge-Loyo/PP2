@@ -126,3 +126,58 @@ body {
     color: black;
     /* Texto negro al pasar el cursor */
 }
+
+
+.main-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+}
+
+.main-menu>li>a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.main-menu>li>a:hover {
+    background-color: red;
+    color: black;
+}
+
+.main-menu .logout a {
+    display: block;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: white;
+    /* Color del texto */
+    transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    /* Alinea verticalmente el icono y el texto */
+}
+
+.main-menu .logout a:hover {
+    background-color: red;
+    color: black;
+}
+
+.main-menu .logout-icon {
+    color: red;
+    /* Color rojo para el icono */
+    margin-right: 10px;
+    /* Espacio entre el icono y el texto */
+    font-size: 1.2em;
+    /* Ajusta el tamaño del icono si es necesario */
+}
+
+/* Separación visual */
+.main-menu .logout {
+    margin-top: 20px;
+    /* Ajusta este valor para la separación */
+    border-top: 1px solid #666;
+    /* Línea separadora opcional */
+}
