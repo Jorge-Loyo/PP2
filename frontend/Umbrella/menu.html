@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Principal - Umbrella</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+
+<body>
+    <div class="video-background">
+        <video src="C:\git\PP2\frontend\Video\2.mp4" autoplay loop muted></video>
+    </div>
+    <aside class="sidebar">
+        <h1>Menú Principal</h1>
+        <img src="C:\git\PP2\frontend\img\logo sin fondo.png" alt="Logo Umbrella" class="sidebar-logo">
+        <ul class="main-menu">
+            <li>
+                <a href="#">Generador de etiquetas</a>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Datos Maestro</a>
+                <ul class="submenu">
+                    <li><a href="#">Derechos de usuarios</a></li>
+                    <li><a href="#">Cambio de contraseña</a></li>
+                    <li><a href="#">Nuevo Usuario</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Medicamentos</a>
+                <ul class="submenu">
+                    <li><a href="#">Nuevo Medicamento</a></li>
+                    <li><a href="#">Nueva Monodroga</a></li>
+                    <li><a href="#">Nueva Presentación</a></li>
+                    <li><a href="#">Modificación de Medicamento</a></li>
+                    <li><a href="#">Modificación de Monodroga</a></li>
+                    <li><a href="#">Modificación de Presentación</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Grupos 1</a>
+                <ul class="submenu">
+                    <li><a href="#">Comprimidos</a></li>
+                    <li><a href="#">Ampollas</a></li>
+                    <li><a href="#">Soluciones Parenterales</a></li>
+                    <li><a href="#">Uso externo</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Grupos 2</a>
+                <ul class="submenu">
+                    <li><a href="#">Alto Riesgo</a></li>
+                    <li><a href="#">Vale Oficial</a></li>
+                    <li><a href="#">Alto Costo</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Informes</a>
+                <ul class="submenu">
+                    <li><a href="#">Informe de Producción total</a></li>
+                    <li><a href="#">Informe de Producción por Grupos 1</a></li>
+                    <li><a href="#">Informe de Producción por Grupos 2</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuItemsWithSubmenu = document.querySelectorAll('.has-submenu');
+
+            menuItemsWithSubmenu.forEach(item => {
+                const submenu = item.querySelector('.submenu');
+                item.addEventListener('mouseenter', () => {
+                    submenu.style.display = 'block';
+                });
+                item.addEventListener('mouseleave', () => {
+                    submenu.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
