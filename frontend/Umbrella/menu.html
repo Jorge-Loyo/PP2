@@ -18,7 +18,7 @@
         <img src="C:\git\PP2\frontend\img\logo sin fondo.png" alt="Logo Umbrella" class="sidebar-logo">
         <ul class="main-menu">
             <li>
-                <a href="#">Generador de etiquetas</a>
+                <a href="#" id="enlace-generador-etiquetas">Generador de etiquetas</a>
             </li>
             <li class="has-submenu">
                 <a href="#">Datos Maestro</a>
@@ -40,22 +40,41 @@
                 </ul>
             </li>
             <li class="has-submenu">
-                <a href="#">Grupos 1</a>
+                <a href="#">Categoria</a>
                 <ul class="submenu">
-                    <li><a href="#">Comprimidos</a></li>
-                    <li><a href="#">Ampollas</a></li>
-                    <li><a href="#">Soluciones Parenterales</a></li>
-                    <li><a href="#">Uso externo</a></li>
+                    <li><a href="#">Alimento</a></li>
+                    <li><a href="#">Antiseptico</a></li>
+                    <li><a href="#">Equipo</a></li>
+                    <li><a href="#">Insumo</a></li>
+                    <li><a href="#">Medicamento</a></li>
+                    <li><a href="#">Otros</a></li>
+                    <li><a href="#">Producto Medico</a></li>
+                    <li><a href="#">Suplemento Dietario</a></li>
+
                 </ul>
             </li>
             <li class="has-submenu">
-                <a href="#">Grupos 2</a>
+                <a href="#">Sub Categoria</a>
                 <ul class="submenu">
-                    <li><a href="#">Alto Riesgo</a></li>
+                    <li><a href="#">Ampolla</a></li>
+                    <li><a href="#">Comprimido</a></li>
+                    <li><a href="#">Contraste</a></li>
+                    <li><a href="#">Descartable</a></li>
+                    <li><a href="#">Jarabe/Suspension</a></li>
+                    <li><a href="#">Oncologico</a></li>
+                    <li><a href="#">Crema/Unguento/Gel</a></li>
+                    <li><a href="#">Inhalatorio</a></li>
+                    <li><a href="#">Psicotropicos</a></li>
                     <li><a href="#">Vale Oficial</a></li>
-                    <li><a href="#">Alto Costo</a></li>
+                    <li><a href="#">Solucione Parenteral</a></li>
+                    <li><a href="#">Sobres</a></li>
+                    <li><a href="#">Polvo</a></li>
+                    <li><a href="#">Brick</a></li>
+                    <li><a href="#">Gotas/Spray</a></li>
+
                 </ul>
             </li>
+
             <li class="has-submenu">
                 <a href="#">Informes</a>
                 <ul class="submenu">
@@ -70,9 +89,76 @@
         </ul>
     </aside>
 
+    <div id="generador-etiquetas-container">
+        <h2>Generador de Etiquetas</h2>
+        <form id="formulario-generador-etiquetas">
+            <div class="form-group">
+                <label for="centro">Centro:</label>
+                <select id="centro" name="centro">
+                    <option value="HMRS">Drogueria</option>
+                    <option value="HMC">HMC</option>
+                    <option value="HMCM">HMCM</option>
+                    <option value="HNPM">HNPM</option>
+                    <option value="HMRC">HMRC</option>
+                    <option value="HMRP">HMRP</option>
+                    <option value="HMRM">Laboratorio</option>
+
+                    < </select>
+            </div>
+            <div class="form-group">
+                <label for="medicamento">Medicamento:</label>
+                <input type="text" id="medicamento" name="medicamento" required>
+                <div id="sugerencias-medicamentos"
+                    style="display: none; position: absolute; z-index: 10;  border: 1px solid #ccc; border-top: none; border-radius: 0 0 4px 4px; width: 100%;">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="laboratorio">Laboratorio:</label>
+                <input type="text" id="laboratorio" name="laboratorio" readonly>
+            </div>
+            <div class="form-group">
+                <label for="monodroga">Monodroga:</label>
+                <input type="text" id="monodroga" name="monodroga" readonly>
+            </div>
+            <div class="form-group">
+                <label for="presentacion">Presentación:</label>
+                <input type="text" id="presentacion" name="presentacion" readonly>
+            </div>
+            <div class="form-group">
+                <label for="codigo">Código:</label>
+                <input type="text" id="codigo" name="codigo" readonly>
+            </div>
+            <div class="form-group">
+                <label for="lote">Lote:</label>
+                <input type="text" id="lote" name="lote" pattern="^[a-zA-Z0-9-]+$" required>
+            </div>
+            <div class="form-group">
+                <label for="vencimiento">Vencimiento:</label>
+                <input type="date" id="vencimiento" name="vencimiento" required min="">
+            </div>
+            <div class="form-group">
+                <label for="grupo1">Categoria:</label>
+                <input type="text" id="grupo1" name="grupo1" readonly>
+            </div>
+            <div class="form-group">
+                <label for="grupo2">Sub Categoria:</label>
+                <input type="text" id="grupo2" name="grupo2" readonly>
+            </div>
+            <div id="trazabilidad-container" class="form-group" style="display: none;">
+                <label for="numero-serie">Número de Serie:</label>
+                <input type="text" id="numero-serie" name="numero_serie">
+            </div>
+            <button type="button">Volver atrás</button>
+            <button type="button">Ver vista previa</button>
+            <button type="reset">Limpiar</button>
+        </form>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const menuItemsWithSubmenu = document.querySelectorAll('.has-submenu');
+            const enlaceGeneradorEtiquetas = document.getElementById('enlace-generador-etiquetas');
+            const generadorEtiquetasContainer = document.getElementById('generador-etiquetas-container');
 
             menuItemsWithSubmenu.forEach(item => {
                 const submenu = item.querySelector('.submenu');
@@ -83,6 +169,80 @@
                     submenu.style.display = 'none';
                 });
             });
+
+            enlaceGeneradorEtiquetas.addEventListener('click', (event) => {
+                event.preventDefault(); // Evita que el enlace intente navegar
+                generadorEtiquetasContainer.style.display = 'block'; // Muestra el formulario
+                // Oculta cualquier otro contenido principal si es necesario
+            });
+
+            // ... (El resto de tu código JavaScript para el autocompletado) ...
+            const medicamentoInput = document.getElementById('medicamento');
+            const sugerenciasContainer = document.getElementById('sugerencias-medicamentos');
+            const laboratorioInput = document.getElementById('laboratorio');
+            const monodrogaInput = document.getElementById('monodroga');
+            const presentacionInput = document.getElementById('presentacion');
+            const codigoInput = document.getElementById('codigo');
+            const grupo1Input = document.getElementById('grupo1');
+            const grupo2Input = document.getElementById('grupo2');
+            const trazabilidadContainer = document.getElementById('trazabilidad-container');
+            const numeroSerieInput = document.getElementById('numero-serie');
+            const vencimientoInput = document.getElementById('vencimiento');
+
+            if (vencimientoInput) {
+                const hoy = new Date();
+                const fechaMinima = hoy.toISOString().split('T')[0];
+                vencimientoInput.setAttribute('min', fechaMinima);
+            }
+
+            if (medicamentoInput) {
+                medicamentoInput.addEventListener('input', async () => {
+                    const textoBusqueda = medicamentoInput.value;
+                    sugerenciasContainer.style.display = textoBusqueda.length >= 2 ? 'block' : 'none';
+                    sugerenciasContainer.innerHTML = '';
+
+                    if (textoBusqueda.length >= 2) {
+                        try {
+                            const response = await fetch(`/buscar_medicamentos?q=${textoBusqueda}`);
+                            const medicamentos = await response.json();
+
+                            if (response.ok && medicamentos.length > 0) {
+                                medicamentos.forEach(medicamento => {
+                                    const sugerencia = document.createElement('div');
+                                    sugerencia.textContent = medicamento.nombre;
+                                    sugerencia.classList.add('sugerencia-item');
+                                    sugerencia.addEventListener('click', () => {
+                                        medicamentoInput.value = medicamento.nombre;
+                                        sugerenciasContainer.style.display = 'none';
+                                        laboratorioInput.value = medicamento.laboratorio || '';
+                                        monodrogaInput.value = medicamento.monodroga || '';
+                                        presentacionInput.value = medicamento.presentacion || '';
+                                        codigoInput.value = medicamento.codigo || '';
+                                        grupo1Input.value = medicamento.grupo1 || '';
+                                        grupo2Input.value = medicamento.grupo2 || '';
+                                        if (trazabilidadContainer) trazabilidadContainer.style.display = medicamento.trazable ? 'block' : 'none';
+                                        if (numeroSerieInput && !medicamento.trazable) numeroSerieInput.value = '';
+                                    });
+                                    sugerenciasContainer.appendChild(sugerencia);
+                                });
+                            } else if (textoBusqueda.length >= 2) {
+                                const noResults = document.createElement('div');
+                                noResults.textContent = 'No se encontraron medicamentos.';
+                                sugerenciasContainer.appendChild(noResults);
+                            }
+                        } catch (error) {
+                            console.error('Error al buscar medicamentos:', error);
+                            sugerenciasContainer.innerHTML = 'Error al buscar medicamentos.';
+                        }
+                    }
+                });
+
+                document.addEventListener('click', (event) => {
+                    if (event.target !== medicamentoInput && event.target !== sugerenciasContainer && !sugerenciasContainer.contains(event.target)) {
+                        sugerenciasContainer.style.display = 'none';
+                    }
+                });
+            }
         });
     </script>
 </body>

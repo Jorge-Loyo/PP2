@@ -5,6 +5,10 @@ body {
     /* Evita barras de desplazamiento */
     background-color: #000;
     /* Fondo negro opcional si el video no cubre todo inicialmente */
+    display: flex;
+    /* Para alinear la barra lateral y el contenido principal */
+    flex-direction: row;
+    /* Asegura que los elementos hijos se alineen en fila (sidebar y contenido) */
 }
 
 .video-background {
@@ -71,12 +75,16 @@ body {
     /* Mantiene la proporción */
     margin: 20px auto;
     /* Centra horizontalmente y añade espacio arriba y abajo */
+
 }
+
+
 
 .main-menu {
     list-style: none;
     padding: 0;
     margin: 0;
+
 }
 
 .main-menu>li>a {
@@ -85,25 +93,40 @@ body {
     text-decoration: none;
     color: white;
     transition: background-color 0.3s ease;
+
 }
+
 
 .main-menu>li>a:hover {
     background-color: red;
     /* Fondo rojo al pasar el cursor */
     color: black;
     /* Texto negro al pasar el cursor */
+
 }
 
+
+
 .has-submenu .submenu {
+
     list-style: none;
+
     padding: 0;
+
     margin: 0;
+
     background-color: rgba(0, 0, 0, 0.8);
+
     /* Fondo negro semitransparente */
+
     display: none;
+
     /* Oculto inicialmente */
+
     border-left: 1px solid red;
+
     /* Línea roja a la izquierda (opcional) */
+
 }
 
 .has-submenu:hover .submenu {
@@ -120,6 +143,8 @@ body {
     transition: background-color 0.3s ease;
 }
 
+
+
 .submenu li a:hover {
     background-color: red;
     /* Fondo rojo al pasar el cursor */
@@ -128,12 +153,16 @@ body {
 }
 
 
+
+
+
 .main-menu {
     list-style: none;
     padding: 0;
     margin: 0;
-
 }
+
+
 
 .main-menu>li>a {
     display: block;
@@ -143,10 +172,14 @@ body {
     transition: background-color 0.3s ease;
 }
 
+
+
 .main-menu>li>a:hover {
     background-color: red;
     color: black;
 }
+
+
 
 .main-menu .logout a {
     display: block;
@@ -160,10 +193,14 @@ body {
     /* Alinea verticalmente el icono y el texto */
 }
 
+
+
 .main-menu .logout a:hover {
     background-color: red;
     color: black;
 }
+
+
 
 .main-menu .logout-icon {
     color: red;
@@ -174,10 +211,145 @@ body {
     /* Ajusta el tamaño del icono si es necesario */
 }
 
-/* Separación visual */
+
 .main-menu .logout {
     margin-top: 20px;
     /* Ajusta este valor para la separación */
     border-top: 1px solid #666;
     /* Línea separadora opcional */
+}
+
+
+
+#generador-etiquetas-container {
+    display: none;
+    /* Se muestra con JavaScript */
+    margin-left: 200px;
+    /* Empuja el contenedor a la derecha del sidebar */
+    width: calc(100% - 200px);
+    /* Ocupa el ancho restante (100% menos el ancho del sidebar) */
+    height: 100vh;
+    /* Ocupa toda la altura */
+    padding: 20px;
+    box-sizing: border-box;
+    /* Incluye el padding en el ancho y alto */
+    overflow-y: auto;
+    /* ¡Esta línea debería habilitar la barra de desplazamiento vertical! */
+    position: relative;
+    /* Para que los elementos internos absolutos se posicionen correctamente */
+    background-color: transparent;
+    /* Hacemos el fondo del contenedor transparente */
+}
+
+
+
+#generador-etiquetas-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(0, 0, 0);
+    /* Color del título */
+    font-size: 2.5em;
+    /* Aumentamos el tamaño de la fuente (puedes ajustar el valor) */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fuente más moderna (puedes elegir otra) */
+}
+
+
+
+#formulario-generador-etiquetas {
+    max-width: 1000px;
+    /* Aumenta el ancho máximo a 1000 píxeles */
+    margin: 20px auto;
+    /* Centra el formulario con un poco de margen superior e inferior */
+    padding: 25px;
+    /* Aumenta el padding a 25px (puedes ajustar este valor) */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-height: calc(100vh - 100px);
+    /* Ajusta el valor según necesites (100vh es la altura de la ventana) */
+    overflow-y: auto;
+    /* También puedes añadir overflow aquí si lo prefieres */
+}
+
+
+
+.form-group {
+
+    margin-bottom: 15px;
+
+}
+
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    font-size: 1.1em;
+    /* Aumenta el tamaño de la fuente de las etiquetas si lo deseas */
+}
+
+
+
+.form-group input[type="text"],
+
+.form-group input[type="date"],
+
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+
+
+#sugerencias-medicamentos {
+    position: absolute;
+    z-index: 10;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    width: calc(100% - 2px);
+    /* Ajustar ancho para el borde del input */
+}
+
+
+
+.sugerencia-item {
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.sugerencia-item:hover {
+    background-color: #f0f0f0;
+}
+
+
+
+/* Removed duplicate block to fix errors */
+
+#generador-etiquetas-container button {
+    padding: 12px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1em;
+    /* Aumenta el tamaño de la fuente de los botones si lo deseas */
+}
+
+#generador-etiquetas-container button[type="button"] {
+    background-color: #5cb85c;
+    color: white;
+}
+
+#generador-etiquetas-container button[type="reset"] {
+    background-color: #f44336;
+    color: white;
 }

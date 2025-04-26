@@ -33,8 +33,8 @@ try:
         'CATEGORIA': 'categoria',
         'ID SUB CATEGORIA': 'id_sub_categoria',
         'SUB CATEGORIA': 'sub_categoria',
-        'Trazabilidad': 'trazable'  # Asegúrate de que los valores sean True/False o conviértelos
-        # Agrega aquí el resto de las columnas que necesites
+        'Trazabilidad': 'trazable',  # Asegúrate de que los valores sean True/False o conviértelos
+        'REFRIGERADO': 'refrigerado',  # Asegúrate de que los valores sean True/False o conviértelos
     })
 
     # Convertir el DataFrame a una lista de diccionarios para insertar en MongoDB
