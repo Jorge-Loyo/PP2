@@ -1,0 +1,251 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    overflow: hidden;
+    /* Evita barras de desplazamiento durante la transición */
+}
+
+.welcome-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    /* Mantiene los elementos en columna */
+    align-items: center;
+    /* Centra horizontalmente los elementos */
+    background-color: #f0f0f0;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 10;
+}
+
+.welcome-text-container {
+    position: absolute;
+    /* Posiciona el contenedor de texto de forma absoluta dentro del contenedor principal */
+    top: 20vh;
+    /* Ajusta esta distancia desde la parte superior según sea necesario */
+    left: 50%;
+    /* Centra horizontalmente el punto de referencia */
+    transform: translateX(-50%);
+    /* Centra horizontalmente el contenedor */
+    z-index: 11;
+    /* Asegura que esté por encima de la imagen */
+}
+
+.welcome-image {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    object-fit: cover;
+    margin-bottom: 0;
+    /* Elimina el margen inferior para que esté más cerca del texto si es necesario */
+}
+
+.welcome-message {
+    font-size: 2em;
+    text-align: center;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    white-space: nowrap;
+    margin-bottom: 0;
+    /* Elimina el margen inferior del mensaje dentro de su contenedor */
+}
+
+.logo {
+    font-weight: bold;
+    color: #ff0033;
+    /* Un color distintivo para el logo */
+}
+
+.login-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://images.pexels.com/photos/159211/headache-pain-pills-medication-159211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+    background-size: cover;
+    /* Cubre todo el contenedor */
+    background-position: center;
+    /* Centra la imagen */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.login-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.login-form {
+    background-color: rgba(255, 255, 255, 0.8);
+    /* Fondo blanco con 80% de opacidad */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: calc(100% - 12px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.login-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Estilos de fuente */
+.welcome-message {
+    font-size: 2em;
+    /* Puedes ajustar este tamaño */
+    color: #000;
+    /* Color base para "Bienvenido a" */
+    text-align: center;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    white-space: nowrap;
+    /* Evita que el texto se rompa inesperadamente */
+}
+
+.welcome-message>span {
+    /* Estilos para "Umbrella" */
+    font-family: '1651 Alchemy Normal', sans-serif;
+    /* Asegúrate de que esta fuente esté disponible o usa una similar */
+    font-size: 3em;
+    /* Un tamaño mayor para "Umbrella" */
+    font-weight: bold;
+    color: red;
+    /* Color rojo */
+    text-shadow: 2px 2px 4px #000000;
+    /* Sombra negra */
+}
+
+.welcome-message>img {
+    /* Estilos para el logo en la bienvenida */
+    height: 4em;
+    /* Ajusta la altura del logo según el tamaño del texto */
+    vertical-align: middle;
+    /* Alinea verticalmente con el texto */
+    margin: 0 10px;
+    /* Espacio alrededor del logo */
+    display: inline-block;
+    /* Permite ajustar el margen */
+}
+
+.welcome-message:first-child {
+    /* Estilos para "Bienvenido a" */
+    font-family: '1651 Alchemy Normal', sans-serif;
+    /* Asegúrate de que esta fuente esté disponible */
+    font-size: 2.5em;
+    /* Tamaño para "Bienvenido a" */
+    color: black;
+    /* Color negro */
+}
+
+/* Estilos de fuente */
+.welcome-message {
+    font-size: 2em;
+    /* Puedes ajustar este tamaño */
+    text-align: center;
+    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+    white-space: nowrap;
+    /* Evita que el texto se rompa inesperadamente */
+}
+
+.welcome-text {
+    font-family: 'UnifrakturMaguntia', cursive;
+    /* Cambia la fuente */
+    font-size: 2.5em;
+    color: black;
+}
+
+.welcome-message>span.logo {
+    font-family: 'UnifrakturMaguntia', cursive;
+    /* Cambia la fuente */
+    font-size: 3em;
+    font-weight: normal;
+    /* La fuente ya es "negrita" */
+    color: red;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.welcome-message>img.umbrella-logo {
+    /* Estilos para el logo en la bienvenida */
+    height: 2em;
+    /* Ajusta la altura del logo según el tamaño del texto */
+    vertical-align: middle;
+    /* Alinea verticalmente con el texto */
+    margin: 0 10px;
+    /* Espacio alrededor del logo */
+    display: inline-block;
+    /* Permite ajustar el margen */
+}
+
+.login-title {
+    font-size: 1.8em;
+    color: #333;
+    margin-bottom: 30px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.logo-title {
+    font-family: 'UnifrakturMaguntia', cursive;
+    /* Cambia la fuente */
+    font-size: 2.5em;
+    font-weight: normal;
+    /* La fuente ya es "negrita" */
+    color: red;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.login-title>img.umbrella-logo-title {
+    /* Estilos para el logo en el título */
+    height: 4em;
+    /* Ajusta la altura del logo para que coincida con la altura de la fuente */
+    vertical-align: middle;
+    /* Alinea verticalmente con el texto */
+    margin-right: 10px;
+    /* Espacio a la derecha del logo */
+    display: inline-block;
+}

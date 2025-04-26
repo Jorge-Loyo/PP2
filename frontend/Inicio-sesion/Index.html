@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umbrella - Inicio de Sesión</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="welcome-container">
+        <div class="welcome-text-container">
+            <h1 class="welcome-message">
+                <span class="welcome-text">Bienvenido a</span><br>
+                <img src="C:\git\PP2\frontend\img\logo sin fondo.png" alt="Logo Umbrella" class="umbrella-logo">
+                <span class="logo">Umbrella</span>
+            </h1>
+        </div>
+        <img src="https://images.pexels.com/photos/159211/headache-pain-pills-medication-159211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt="Imagen de Bienvenida" class="welcome-image">
+    </div>
+
+    <div class="login-container hidden">
+        <h1 class="login-title">
+            <img src="C:\git\PP2\frontend\img\logo sin fondo.png" alt="Logo Umbrella" class="umbrella-logo-title">
+            <span class="logo-title">Umbrella</span>
+        </h1>
+        <form class="login-form">
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="login-button">Iniciar Sesión</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const welcomeContainer = document.querySelector('.welcome-container');
+            const welcomeMessage = document.querySelector('.welcome-message');
+            const loginContainer = document.querySelector('.login-container');
+
+            setTimeout(() => {
+                welcomeMessage.style.transform = 'translateY(-100px)'; // Mueve el mensaje hacia arriba
+                welcomeMessage.style.opacity = '0';
+                setTimeout(() => {
+                    welcomeContainer.style.opacity = '0';
+                    setTimeout(() => {
+                        welcomeContainer.style.display = 'none';
+                        loginContainer.classList.remove('hidden');
+                        setTimeout(() => {
+                            loginContainer.style.opacity = '1';
+                        }, 50); // Pequeño delay para asegurar la transición de opacidad
+                    }, 500); // Duración de la transición de la imagen
+                }, 1000); // Duración del movimiento y desvanecimiento del mensaje
+            }, 2000); // Tiempo que se muestra la bienvenida inicialmente
+        });
+    </script>
+</body>
+
+</html>
