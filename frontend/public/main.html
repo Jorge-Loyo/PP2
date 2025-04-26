@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal - Emvasado</title>
+    <link rel="stylesheet" href="estilos.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>Bienvenido, <span id="user-display">Usuario</span></h1>
+            <button id="logout-btn">Cerrar Sesión</button>
+        </header>
+        
+        <div class="menu-container">
+            <!-- Menú Lateral -->
+            <nav class="menu">
+                <ul>
+                    <li><a href="#" class="active">Inicio</a></li>
+                    <li><a href="#generar-etiqueta">Generar Etiqueta</a></li>
+                    <li><a href="#medicamentos">Medicamentos</a></li>
+                    <li><a href="#informes">Informes</a></li>
+                </ul>
+            </nav>
+
+            <!-- Contenido Principal -->
+            <div class="main-content">
+                <section id="generar-etiqueta" class="tab-content">
+                    <h2>Generador de Etiquetas</h2>
+                    <form>
+                        <div style="margin-bottom: 15px;">
+                            <label for="med-name" style="display: block; margin-bottom: 5px; color: #063970;">Nombre del Medicamento</label>
+                            <input type="text" id="med-name" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        <div style="margin-bottom: 15px;">
+                            <label for="med-lote" style="display: block; margin-bottom: 5px; color: #063970;">Lote</label>
+                            <input type="text" id="med-lote" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                        </div>
+                        <button type="submit" class="btn">Imprimir Etiqueta</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
