@@ -55,13 +55,10 @@ body {
 }
 
 .sidebar h1 {
-    padding: 20px;
-    margin-bottom: 20px;
+    font-size: 2em;
+    margin-bottom: 10px;
+    /* Reducimos el margen inferior */
     text-align: center;
-    border-bottom: 2px solid red;
-    /* Línea roja debajo del título */
-    color: red;
-    /* Texto del título en rojo */
 }
 
 .sidebar-logo {
@@ -76,6 +73,17 @@ body {
     margin: 20px auto;
     /* Centra horizontalmente y añade espacio arriba y abajo */
 
+}
+
+.sidebar img.menu-logo {
+    width: 80%;
+    /* Ancho del logo */
+    height: auto;
+    /* Altura automática para mantener la proporción */
+    display: block;
+    /* Para centrarlo correctamente */
+    margin: 10px auto 20px auto;
+    /* Margen superior, centrado horizontal, margen inferior */
 }
 
 

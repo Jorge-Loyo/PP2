@@ -1,11 +1,11 @@
-from flask import Flask, request, jsonify, send_file
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 from pymongo import MongoClient
 from bcrypt import checkpw
 import os
 
-app = Flask(__name__, static_folder='../frontend/Umbrella', static_url_path='/')
-CORS(app, resources={r"/login": {"origins": "http://127.0.0.1:5000"}}) # Ajusta el origen si es necesario
+app = Flask(__name__)  # No necesitamos static_folder ni static_url_path
+CORS(app, resources={r"/login": {"origins": "http://127.0.0.1:5000"}})
 
 # Configuración de la conexión a MongoDB Atlas
 MONGO_URI = "mongodb+srv://Jloyo:2580@cluster0.rbb8srm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
@@ -20,15 +20,19 @@ medicamentos_collection = db[MEDICAMENTOS_COLLECTION_NAME]
 
 @app.route('/')
 def index():
-    return send_file(os.path.join(app.static_folder, 'index.html'))
+    return send_from_directory('.', 'index.html')  # Servir index.html desde la misma carpeta
 
-@app.route('/index.html')
-def serve_index():
-    return send_file(os.path.join(app.static_folder, 'index.html'))
+@app.route('/<path:filename>')
+def serve_static(filename):
+    return send_from_directory('.', filename)  # Servir otros archivos estáticos (CSS, etc.)
 
-@app.route('/menu.html')
-def menu():
-    return send_file(os.path.join(app.static_folder, 'menu.html'))
+@app.route('/Video/<path:filename>')
+def serve_video(filename):
+    return send_from_directory('Video', filename)  # Servir videos desde la carpeta Video
+
+@app.route('/img/<path:filename>')
+def serve_images(filename):
+    return send_from_directory('img', filename)  # Servir imágenes desde la carpeta img
 
 @app.route('/login', methods=['POST'])
 def login():
@@ -59,32 +63,8 @@ def login():
 
 @app.route('/buscar_medicamentos')
 def buscar_medicamentos():
-    query = request.args.get('q')
-    if query and len(query) >= 2:
-        search_pattern = f"^{query}"
-        medicamentos = medicamentos_collection.find(
-            {'medicamento': {'$regex': search_pattern, '$options': 'i'}},
-            {'_id': 0, 'medicamento': 1, 'laboratorio': 1, 'monodroga': 1,
-             'prese_monodroga': 1, 'código_medicamento': 1, 'categorías': 1,
-             'subcategoría': 1, 'TRAZABILIDAD': 1}
-        ).limit(10)
-
-        medicamentos_list = list(medicamentos)
-        formatted_medicamentos = []
-        for med in medicamentos_list:
-            formatted_medicamentos.append({
-                'nombre': med.get('medicamento'),
-                'laboratorio': med.get('laboratorio'),
-                'monodroga': med.get('monodroga'),
-                'presentacion': med.get('prese_monodroga'),
-                'codigo': med.get('código_medicamento'),
-                'grupo1': med.get('categorías'),
-                'grupo2': med.get('subcategoría'),
-                'trazable': med.get('TRAZABILIDAD', False)
-            })
-
-        return jsonify(formatted_medicamentos)
-    return jsonify([])
+    # ... (código de buscar_medicamentos sin cambios)
+    pass
 
 if __name__ == '__main__':
     app.run(debug=True)

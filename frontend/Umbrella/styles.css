@@ -83,6 +83,7 @@ body {
     color: #333;
     margin-bottom: 30px;
     text-align: center;
+    white-space: nowrap;
 }
 
 .login-form {
@@ -139,53 +140,6 @@ body {
 .welcome-message {
     font-size: 2em;
     /* Puedes ajustar este tamaño */
-    color: #000;
-    /* Color base para "Bienvenido a" */
-    text-align: center;
-    transition: transform 1s ease-in-out, opacity 1s ease-in-out;
-    white-space: nowrap;
-    /* Evita que el texto se rompa inesperadamente */
-}
-
-.welcome-message>span {
-    /* Estilos para "Umbrella" */
-    font-family: '1651 Alchemy Normal', sans-serif;
-    /* Asegúrate de que esta fuente esté disponible o usa una similar */
-    font-size: 3em;
-    /* Un tamaño mayor para "Umbrella" */
-    font-weight: bold;
-    color: red;
-    /* Color rojo */
-    text-shadow: 2px 2px 4px #000000;
-    /* Sombra negra */
-}
-
-.welcome-message>img {
-    /* Estilos para el logo en la bienvenida */
-    height: 4em;
-    /* Ajusta la altura del logo según el tamaño del texto */
-    vertical-align: middle;
-    /* Alinea verticalmente con el texto */
-    margin: 0 10px;
-    /* Espacio alrededor del logo */
-    display: inline-block;
-    /* Permite ajustar el margen */
-}
-
-.welcome-message:first-child {
-    /* Estilos para "Bienvenido a" */
-    font-family: '1651 Alchemy Normal', sans-serif;
-    /* Asegúrate de que esta fuente esté disponible */
-    font-size: 2.5em;
-    /* Tamaño para "Bienvenido a" */
-    color: black;
-    /* Color negro */
-}
-
-/* Estilos de fuente */
-.welcome-message {
-    font-size: 2em;
-    /* Puedes ajustar este tamaño */
     text-align: center;
     transition: transform 1s ease-in-out, opacity 1s ease-in-out;
     white-space: nowrap;
@@ -210,6 +164,7 @@ body {
 }
 
 .welcome-message>img.umbrella-logo {
+    /* Estilos para el logo en la bienvenida */
     /* Estilos para el logo en la bienvenida */
     height: 4em;
     /* Ajusta la altura del logo según el tamaño del texto */
@@ -241,8 +196,8 @@ body {
 
 .login-title>img.umbrella-logo-title {
     /* Estilos para el logo en el título */
-    height: 4em;
-    /* Ajusta la altura del logo para que coincida con la altura de la fuente */
+    height: 1em;
+    /* Reducimos la altura del logo */
     vertical-align: middle;
     /* Alinea verticalmente con el texto */
     margin-right: 10px;

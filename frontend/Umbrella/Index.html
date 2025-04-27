@@ -16,7 +16,7 @@
         <div class="welcome-text-container">
             <h1 class="welcome-message">
                 <span class="welcome-text">Bienvenido a</span><br>
-                <img src="C:\git\PP2\frontend\img\logo sin fondo.png" alt="Logo Umbrella" class="umbrella-logo">
+                <img src="img/logo sin fondo.png" alt="Logo Umbrella" class="umbrella-logo">
                 <span class="logo">Umbrella</span>
             </h1>
         </div>
@@ -26,8 +26,7 @@
 
     <div class="login-container hidden">
         <h1 class="login-title">
-            <img src="../img/logo sin fondo.png" alt="Logo Umbrella" class="umbrella-logo">
-            <img src="../img/logo sin fondo.png" alt="Logo Umbrella" class="umbrella-logo-title">
+            <img src="img/logo sin fondo.png" alt="Logo Umbrella" class="umbrella-logo-title">
             <span class="logo-title">Umbrella</span>
         </h1>
         <form class="login-form">
@@ -47,19 +46,20 @@
         document.addEventListener('DOMContentLoaded', () => {
             const welcomeContainer = document.querySelector('.welcome-container');
             const loginContainer = document.querySelector('.login-container');
-            const loginForm = document.querySelector('.login-form');
             const errorMessage = document.getElementById('error-message');
 
-            // Transición de la página de bienvenida al formulario de inicio de sesión después de 3 segundos
             setTimeout(() => {
-                welcomeContainer.style.opacity = '0';
+                welcomeContainer.style.opacity = 0;
                 setTimeout(() => {
                     welcomeContainer.style.display = 'none';
-                    loginContainer.classList.remove('hidden');
-                    loginContainer.style.opacity = '1';
-                }, 500); // Espera la transición de opacidad
-            }, 3000); // Espera 3 segundos (ajusta este valor si es necesario)
+                    loginContainer.style.display = 'flex';
+                    setTimeout(() => {
+                        loginContainer.style.opacity = 1;
+                    }, 50);
+                }, 500);
+            }, 3000);
 
+            const loginForm = document.querySelector('.login-form');
             loginForm.addEventListener('submit', async (event) => {
                 event.preventDefault(); // Evita la recarga de la página
 
