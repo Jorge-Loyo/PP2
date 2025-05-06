@@ -13,10 +13,21 @@ DB_NAME = "Paraguas"
 USER_COLLECTION_NAME = "usuarios"
 MEDICAMENTOS_COLLECTION_NAME = "medicamentos"
 
-client = MongoClient(MONGO_URI)
-db = client[DB_NAME]
-user_collection = db[USER_COLLECTION_NAME]
-medicamentos_collection = db[MEDICAMENTOS_COLLECTION_NAME]
+client = None  # Inicializar client fuera del bloque try
+
+try:
+    client = MongoClient(MONGO_URI)
+    db = client[DB_NAME]
+    user_collection = db[USER_COLLECTION_NAME]
+    medicamentos_collection = db[MEDICAMENTOS_COLLECTION_NAME]
+    print("Conexión a MongoDB Atlas exitosa!") # Mensaje de éxito
+except Exception as e:
+    print(f"Error al conectar a MongoDB Atlas: {e}")
+    # Aquí podrías incluso retornar un error al frontend si es necesario
+    # return jsonify({'error': 'Error al conectar a la base de datos'}), 500
+    db = None
+    user_collection = None
+    medicamentos_collection = None
 
 @app.route('/')
 def index():
@@ -46,6 +57,10 @@ def login():
     if not username or not password:
         print("Error: Nombre de usuario y/o contraseña faltan")
         return jsonify({'error': 'Nombre de usuario y contraseña son requeridos'}), 400
+
+    if not user_collection:
+        print("Error: No hay conexión a la base de datos.")
+        return jsonify({'error': 'Error en la base de datos'}), 500
 
     user = user_collection.find_one({'nombre_usuario': username})
 
