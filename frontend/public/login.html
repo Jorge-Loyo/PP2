@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Sistema de Emvasado</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="login-page"> <!-- Agregada clase para el fondo -->
+    <div class="login-container">
+        <h2>Acceso al Sistema</h2>
+        <form id="login-form">
+            <label for="username">Usuario</label>
+            <input type="text" id="username" placeholder="Ej: admin" autocomplete="username" required>
+            
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" placeholder="Ej: 1234"  autocomplete="new-password" required>
+            
+            <button type="submit">Ingresar</button>
+        </form>
+        <div class="forgot-password">
+            <a href="#">¿Olvidaste tu contraseña?</a>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
