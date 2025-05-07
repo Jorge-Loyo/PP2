@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menú Principal - Umbrella</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     </div>
     <aside class="sidebar">
         <h1>Menú Principal</h1>
-        <img src="C:\git\PP2\frontend\img\logo sin fondo.png" alt="Logo Umbrella" class="sidebar-logo">
+        <img src="{{ url_for('static', filename='img/Logo sin fondo.png') }}" alt="Logo Umbrella" class="sidebar-logo">
         <ul class="main-menu">
             <li>
                 <a href="#">Generador de etiquetas</a>
@@ -65,7 +65,7 @@
                 </ul>
             </li>
             <li class="logout">
-                <a href="index.html"><span class="logout-icon">⬅️</span> Cerrar Sesión</a>
+                <a href="/"><span class="logout-icon">⬅️</span> Cerrar Sesión</a>
             </li>
         </ul>
     </aside>

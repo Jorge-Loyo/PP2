@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Umbrella - Inicio de Sesión</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&display=swap" rel="stylesheet">
@@ -16,7 +16,8 @@
         <div class="welcome-text-container">
             <h1 class="welcome-message">
                 <span class="welcome-text">Bienvenido a</span><br>
-                <img src="C:\git\PP2\frontend\img\logo sin fondo.png" alt="Logo Umbrella" class="umbrella-logo">
+                <img src="{{ url_for('static', filename='img/Logo sin fondo.png') }}" alt="Logo Umbrella"
+                    class="umbrella-logo">
                 <span class="logo">Umbrella</span>
             </h1>
         </div>
@@ -26,8 +27,10 @@
 
     <div class="login-container hidden">
         <h1 class="login-title">
-            <img src="C:\git\PP2\frontend\img\logo sin fondo.png" alt="Logo Umbrella" class="umbrella-logo-title">
-            <span class="logo-title">Umbrella</span>
+            <!--<img src="{{ url_for('static', filename='img/Logo sin fondo.png') }}" alt="Logo Umbrella" 
+            class="umbrella-logo-title"> -->
+            <span class="logo-title"> Umbrella</span>
+
         </h1>
         <form class="login-form">
             <div class="form-group">
@@ -79,7 +82,7 @@
                     const data = await response.json();
 
                     if (response.ok) {
-                        window.location.href = 'menu.html';
+                        window.location.href = '/menu';  // Cambiado a la ruta Flask
                     } else {
                         errorMessage.textContent = data.error || 'Error al iniciar sesión';
                         errorMessage.style.display = 'block';

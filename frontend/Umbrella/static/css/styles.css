@@ -160,10 +160,14 @@ body {
     /* Sombra negra */
 }
 
-.welcome-message>img {
+.welcome-message>img.umbrella-logo {
     /* Estilos para el logo en la bienvenida */
-    height: 4em;
-    /* Ajusta la altura del logo según el tamaño del texto */
+    height: auto;
+    /* Ajusta la altura automáticamente */
+    width: auto;
+    /* Ajusta el ancho automáticamente */
+    max-height: 4em;
+    /* Limita la altura máxima */
     vertical-align: middle;
     /* Alinea verticalmente con el texto */
     margin: 0 10px;
@@ -211,14 +215,14 @@ body {
 
 .welcome-message>img.umbrella-logo {
     /* Estilos para el logo en la bienvenida */
-    height: 2em;
-    /* Ajusta la altura del logo según el tamaño del texto */
+    height: auto;
+    width: auto;
+    max-height: 2em;
     vertical-align: middle;
     /* Alinea verticalmente con el texto */
     margin: 0 10px;
     /* Espacio alrededor del logo */
     display: inline-block;
-    /* Permite ajustar el margen */
 }
 
 .login-title {
@@ -241,11 +245,36 @@ body {
 
 .login-title>img.umbrella-logo-title {
     /* Estilos para el logo en el título */
-    height: 4em;
-    /* Ajusta la altura del logo para que coincida con la altura de la fuente */
+    height: auto;
+    width: auto;
+    max-height: 4em;
     vertical-align: middle;
     /* Alinea verticalmente con el texto */
     margin-right: 10px;
     /* Espacio a la derecha del logo */
     display: inline-block;
+}
+
+.umbrella-logo {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    /* Para que no se salga de su contenedor */
+    max-height: 100%;
+}
+
+.umbrella-logo-title {
+    width: auto;
+    height: auto;
+    max-width: 200px;
+    /* Ajusta según sea necesario */
+    max-height: 200px;
+}
+
+.sidebar-logo {
+    width: auto;
+    height: auto;
+    max-width: 100px;
+    /* Ajusta según sea necesario */
+    max-height: 100px;
 }

@@ -63,12 +63,13 @@ body {
 .sidebar-logo {
     display: block;
     /* Para poder aplicar márgenes y ancho/alto */
-    width: 80%;
+    width: auto;
     /* Ajusta el ancho según lo necesites */
     max-width: 150px;
     /* Ancho máximo opcional */
     height: auto;
     /* Mantiene la proporción */
+    max-height: 150px;
     margin: 20px auto;
     /* Centra horizontalmente y añade espacio arriba y abajo */
 }

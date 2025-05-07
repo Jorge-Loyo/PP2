@@ -1,4 +1,4 @@
-# Esta pagina web usa los lengiajes de:
+# Esta pagina web usa los lenguajes de:
 HTML
 CSS
 Java Scrip
